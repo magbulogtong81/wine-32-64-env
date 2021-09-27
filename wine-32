@@ -1,0 +1,81 @@
+#!/bin/bash
+
+#setup arch and path
+arch=win32
+path=~/.wine32
+
+Help(){
+echo "wine-64 [path of exe program]"
+echo "exececute an exe program"
+echo "this scipt will run an exe program with 64-bit environment"
+echo "if the default path was not yet created, it will create a new one"
+echo "default path: $path for user $USER"
+echo "----------------------------------------------------------"
+echo "wine-64 -t [winetricks program]"
+echo "install a program included in winetricks"
+echo "for example, when installing .NET 4.5, this is the same as executing:"
+printf "\n \"winetricks dotnet45\" \n\n"
+echo "but the usage with this script should be:"
+printf "\n \"wine-64 -t dotnet45\" \n"
+printf "\n this is to ensure that you're executing winetricks on the correct directory ($path)\n"
+
+printf "\n NOTE: you could also execute \"wine-64 -t\" for GUI mode \n"
+echo "----------------------------------------------------------"
+echo "wine-64 -c"
+echo "execute winecfg on correct directory ($path)"
+echo "----------------------------------------------------------"
+echo "wine-64 -r"
+echo "this will delete the installation path $path. and put a fresh installation of windows environment"
+
+
+}
+
+
+checkpath(){
+if [[ ! -d $path ]]; then
+    echo " setting up windows x86 environment"
+    env WINEPREFIX=$path WINEARCH=$arch wineboot -u &
+    
+fi
+}
+
+
+reinstall(){
+echo "WARNING: this will delete the path $path and refresh the wine"
+echo "deleting $path..."
+echo "INFO: press Ctrl+C to cancel"
+sleep 5s
+rm -rf $path
+    echo " reconfiguring windows x86_64 environment"
+    env WINEPREFIX=$path WINEARCH=$arch wineboot -u &
+}
+
+
+#list option
+while getopts ":h",":t",":c","r" option; do
+   case $option in
+      h) # display Help
+         Help
+         exit;;
+      t) #winetricks
+        env WINEPREFIX=$path WINEARCH=$arch winetricks $2
+        exit;;
+      c) #winecfg
+         env WINEPREFIX=$path WINEARCH=$arch winecfg
+         exit;;
+      r) # display Help
+         reinstall
+         exit;;
+     \?) # incorrect option
+         echo "Error: Invalid option"
+         exit;;
+   esac
+done
+## main program
+checkpath
+
+echo "your architecture: windows x86"
+echo "wine path: $path"
+echo "if you would like to cancel, press Ctrl+C"
+sleep 3s
+env WINEPREFIX=$path WINEARCH=$arch wine $1
