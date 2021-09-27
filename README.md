@@ -6,12 +6,14 @@ this scripts will allow us to seperate 32-bit and 64-bit installation
 
 <h3> NOTE:</h3> {arch} is either 32 or 64
 
+<hr>
+
 <code>wine-{arch} [path of exe program]</code>
 <p>exececute an exe program</p>
 <p>this scipt will run an exe program with {arch}-bit environment
 if the default path was not yet created, it will create a new one
 default path: /home/unknown-user/.wine{arch} for user unknown-user</p>
-<p>----------------------------------------------------------</p>
+<hr>
 <code>wine-{arch} -t [winetricks program]</code>
 <p>install a program included in winetricks
 for example, when installing .NET 4.5, this is the same as executing:</p>
@@ -25,14 +27,16 @@ for example, when installing .NET 4.5, this is the same as executing:</p>
 <p> this is to ensure that you're executing winetricks on the correct directory (/home/unknown-user/.wine32)</p>
 
 <h5> NOTE: you could also execute "<code>wine-{arch} -t</code>" for GUI mode </h5>
-<p>----------------------------------------------------------</p>
+<hr>
 <code> wine-{arch} -c </code>
 <p>execute winecfg on correct directory (/home/unknown-user/.wine{arch})</p>
-<p>----------------------------------------------------------</p>
+<hr>
 <code> wine-64 -r </code>
 <h5>NOTE: this will delete the installation path /home/unknown-user/.wine{arch}. and install a fresh installation of windows environment</h5>
 
+<h5> NOTE: you could display this help page on terminal by executing</h5> <code>wine{arch} -h</code>
 
+<hr>
 
 <h2> INSTALLATION</h2>
 <p> (skip 1-3 if you already do so)
