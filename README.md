@@ -49,13 +49,15 @@ then update your packages by executing <code> sudo apt update</code>
 
 <code> sudo apt install wine wine32 wine64 wine-stable winetricks</code>
 
-4.) Download the repo in zip <a href="https://codeload.github.com/magbulogtong81/wine-32-64-env/zip/refs/heads/main">here</a> or fire up terminal and execute <code> git clone https://https://github.com/magbulogtong81/wine-32-64-env</code>
+<p>4.) Download the repo in zip <a href="https://codeload.github.com/magbulogtong81/wine-32-64-env/zip/refs/heads/main">here</a> or fire up terminal and execute </p>
+<code> git clone https://https://github.com/magbulogtong81/wine-32-64-env</code>
 
-5.)<code>cd wine-32-64-env</code>
+5.)<p>change directory to the repo</p>
+<code>cd wine-32-64-env</code>
 
 <p>6.)make the scripts executable</p>
 <code> chmod +x wine-32 wine-64</code>
 
-<p>7.) move the script file to be able to execute it system-wide
+<p>7.) move the script file to be able to execute it system-wide</p>
   <code>sudo mv wine-32 wine-64 /usr/local/bin</code>
   <p>8.) execute <code>wine-32</code>to get a 32-bit installation or   <code>wine-64</code> for 64-bit</p>
