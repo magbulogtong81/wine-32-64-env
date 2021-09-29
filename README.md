@@ -4,7 +4,7 @@ this scripts will allow us to seperate 32-bit and 64-bit installation
 
 <h2> USAGE </h2>
 
-<h3> NOTE:</h3> {arch} is either 32 or 64
+<h3> NOTE:</h3> {arch} is either 32 or 64</h3>
 
 <hr>
 
@@ -34,7 +34,7 @@ for example, when installing .NET 4.5, this is the same as executing:</p>
 <code> wine-64 -r </code>
 <h5>NOTE: this will delete the installation path /home/unknown-user/.wine{arch}. and install a fresh installation of windows environment</h5>
 
-<h5> NOTE: you could display this help page on terminal by executing</h5> <code>wine{arch} -h</code>
+<h2> NOTE: you could display this help page on terminal by executing</h2> <code>wine{arch} -h</code>
 
 <hr>
 
